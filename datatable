@@ -1,0 +1,17 @@
++--------------+         +-----------+         +-------------+
+|   Players    |  N     1|   Teams    |         |   Seasons    |
++--------------+---------+-----------+         +-------------+
+| player_id PK |         | team_id PK |         | season_id PK |
+| team_id  FK  |         | team_name  |         | season_name  |
++--------------+         +-----------+         +-------------+
+       |                                           1      N
+       |                                             |
+       N                                          +-----------+
++---------------+                                 |   Games    |
+| PlayerStats   |  N     1    +--------------+    +-----------+
++---------------+------------>| Games        |    | game_id PK|
+| stat_id  PK   |             +--------------+----| team1_id FK|
+| player_id FK  |             | game_id  PK  |    | team2_id FK|
+| game_id   FK  |             | season_id FK |    | season_id FK|
+| points        |             | date         |    +-----------+
++---------------+             +--------------+                   
